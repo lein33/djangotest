@@ -1,0 +1,42 @@
+{% extends 'main/main.html' %}
+
+{%block title%}
+tablas usuario
+{% endblock %}
+{% block header %}
+<h1 class="titulo1">
+    lista de vehiculo
+</h1>
+{% endblock %}
+{% block nav %}
+    {% include 'persona/barra_nav.html' %}
+{% endblock %}
+{% block content %}
+    <table>
+        <thead>
+            <tr>
+                <td>placa</td>
+                <td>marca</td>
+                <td>modelo</td>
+                <td>tipo</td>
+                <td>color</td>
+                <td>cilindraje</td>
+                <td>persona</td>
+                <td>mantenimiento</td>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% if vehiculo %}
+            {% for v in vehiculo %}
+            <tr>
+                <td>{{v.placa}}</td>
+            </tr>
+            {% endfor %}
+            {% else %}
+                <h1> No existen registros</h1>
+            {% endif %}
+
+        </tbody>
+    </table>
+{% endblock %}

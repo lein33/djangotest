@@ -1,0 +1,52 @@
+{% extends 'main/main.html' %}
+
+{%block title%}
+tablas usuario
+{% endblock %}
+{% block header %}
+<h1 class="titulo1">
+    lista de personas
+</h1>
+{% endblock %}
+{% block nav %}
+    {% include 'persona/barra_nav.html' %}
+{% endblock %}
+{% block content %}
+    <table>
+        <thead>
+            <tr>
+                <td>dni</td>
+                <td>nombre</td>
+                <td>edad</td>
+                <td>sexo</td>
+                <td>correo</td>
+                <td>pais</td>
+                <td>provincia</td>
+                <td>direccion</td>
+                <td>codigo postal</td>
+                <td>celular</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% if personas %}
+            {% for p in personas %}
+            <tr>
+                <td>{{p.dni}}</td>
+                <td>{{p.nombre}}</td>
+                <td>{{p.edad}}</td>
+                <td>{{p.sexo}}</td>
+                <td>{{p.correo}}</td>
+                <td>{{p.pais}}</td>
+                <td>{{p.provincia}}</td>
+                <td>{{p.direccion}}</td>
+                <td>{{p.codigo_postal}}</td>
+                <td>{{p.celular}}</td> 
+            </tr>
+            {% endfor %}
+            {% else %}
+                <h1> No existen registros</h1>
+            {% endif %}
+
+        </tbody>
+    </table>
+{% endblock %}
